@@ -73,7 +73,7 @@ public class QuerydslJPAContainer<T> extends JPAContainer<T> {
         Object[] propertyId = new Object[order.length];
         boolean[] ascending = new boolean[order.length];
         for (int i = 0; i < order.length; i++) {
-            propertyId[i] = ((Path)order[i].getTarget()).getMetadata().getName();
+            propertyId[i] = ((Path<?>)order[i].getTarget()).getMetadata().getName();
             ascending[i] = order[i].getOrder() == Order.ASC;
         }
         super.sort(propertyId, ascending);
